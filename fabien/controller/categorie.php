@@ -5,7 +5,9 @@ $filterValue = $_GET['filter'] ?? null;
 // faire une requette qui fait les recettes avec le filtre
 //$recipes = $model->getRecipesByFilter($filterValue);
 
-
+session_start();
 $recipes = "aaaa";
-include '../view/page/recettes.php';
+$_SESSION['recipes'] = $recipes;
+
 ?>
+<?php header('Location: ../view/page/recettes.php'); ?>

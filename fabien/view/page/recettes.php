@@ -1,7 +1,10 @@
-<?php
-/* foreach ($recipes as $recipe) {
-    echo $recipe['name']; // ou toute autre structure que vous avez pour afficher les recettes
-} */
+<?php ob_start(); ?>
 
+<?php
+session_start();
+$recipes = $_SESSION['recipes'] ?? null;
 echo $recipes;
+unset($_SESSION['recipes']);
 ?>
+<?php $content = ob_get_clean();
+require_once('../template.php'); ?>

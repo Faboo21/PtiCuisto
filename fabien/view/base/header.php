@@ -20,7 +20,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item text-light text-center" href="#" title="Lien 2">Titre</a></li>
+                        <li><a class="dropdown-item text-light text-center" data-toggle="modal" data-target="#modaleTitre" title="Lien 2">Titre</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -128,6 +128,32 @@
                 <div class="form-group mb-2">
                     <a href="../../controller/categorie.php?filter=3" class="btn btn-warning btn-block">Dinner</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modaleTitre" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+                    X
+                </button>
+            </div>
+            <div class="modal-body p-4 py-5 p-md-5">
+                <h3 class="text-center mb-3">Recherche par titre</h3>
+                <ul class="ftco-footer-social p-0 text-center">
+                </ul>
+                <form action="../../controller/titre.php" class="signup-form">
+                    <div class="form-group mb-2">
+                        <label for="titre">Titre</label>
+                        <input type="titre" class="form-control" placeholder="Titre">
+                    </div>
+                    <div class="form-group mb-2">
+                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Rechercher</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
