@@ -1,0 +1,21 @@
+https://dev-leroy223.users.info.unicaen.fr
+# Informations de connection
+DB_TYPE : mysql
+DB_HOST : mysql.info.unicaen.fr
+DB_PORT : 3306
+DB_USER : leroy223
+DB_PASS : eifieth5EeTohdai
+# Liste des basses de données disponibles
+DB_NAME : leroy223_bd
+DB_NAME : leroy223_prod
+DB_NAME : leroy223_dev
+DB_NAME : leroy223_0
+DB_NAME : leroy223_1
+DB_NAME : leroy223_2
+DB_NAME : leroy223_3
+DB_NAME : leroy223_4
+DB_NAME : leroy223_5
+DB_NAME : leroy223_6
+DB_NAME : leroy223_7
+DB_NAME : leroy223_8
+DB_NAME : leroy223_9
