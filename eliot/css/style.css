@@ -25,3 +25,11 @@
 .editorial-content {
     text-align: center;  /* Centre le texte à l'horizontale */
 }
+
+.logo{
+    margin: 5mm;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

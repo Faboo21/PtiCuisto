@@ -63,15 +63,28 @@ class RecipeManager extends Manager{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    function rechercheNom($nom){
-        $stmt = parent::connexion()->prepare("SELECT count(*) as total from PC_RECETTE where REC_IMAGE = '$nom'");
+    function totalRecette(){
+        $stmt = parent::connexion()->prepare("SELECT count(*) as total from PC_RECETTE");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
+    function ajouter_recette($nom_recette, $Resume, $instructions, $categorie, $image, $nouveaux_ingredients, $ingredients, $user)
+    {   
+        $stmt = parent::connexion()->prepare("INSERT INTO PC_RECETTE (rec_titre, rec_contenu, rec_resume, cat_id, rec_image, rec_datecreation, rec_dtemodification, uti_id) 
+        VALUES('$nom_recette', '$instructions', '$Resume', '$categorie', '$image', SYSDATE(), SYSDATE(), (SELECT uti_id from PC_UTILISTEUR where pseudo = '$user'))");
+        $stmt->execute();
 
-
-
-
-
+        foreach($nouveaux_ingredients as $nouveau){
+            $stmt = parent::connexion()->prepare("INSERT INTO PC_INGREDIENT (ing_intitule) VALUES ($nouveau)");
+            $stmt->execute();
+            $stmt = parent::connexion()->prepare("INSERT INTO PC_RECETTE_INGREDIENT (rec_id, ing_id) VALUES ((SELECT max(rec_id) from PC_RECETTE), (SELECT max(ing_id) from PC_INGREDIANT))");
+            $stmt->execute();
+        }
+        
+        foreach($ingredients as $nouveau){
+            $stmt = parent::connexion()->prepare("INSERT INTO PC_RECETTE_INGREDIENT (rec_id, ing_id) VALUES ((SELECT max(rec_id) from PC_RECETTE), $nouveau)");
+            $stmt->execute();
+        }
+    }
 }

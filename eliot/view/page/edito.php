@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php ob_start(); session_start();?>
 
 <!-- Conteneur à 70% de la largeur du site -->
 <div class="custom-container mt-3">
@@ -8,18 +8,32 @@
     <!-- Contenu en dessous de l'image -->
     <div class="row">
         <!-- Zone des dernières recettes -->
-        <div class="col-md-6"> <!-- Ici, changez de col-md-8 à col-md-6 -->
-            <h2 class="titre text-light">Nos dernières recettes</h2>
+        <div class="col-md-5 border border-primary m-5"> <!-- Ici, changez de col-md-8 à col-md-6 -->
+            <h1 class="titre mt-2">Les dernières recettes</h1>
             <?php
-            session_start();
             require_once '../../model/RecipeManager.php';
 
             $recipe = new RecipeManager();
-            $stmt = $recipe->afficheTroisRecette();
+            $recipes = $recipe->afficheTroisRecette();
 
-            foreach ($stmt as $row) {
-                echo $row['rec_TITRE'] . '  ' . $row['REC_Resum'] . ' ' . $row['rec_IMAGE'];
-                echo "<br />";
+            if (is_array($recipes) && !empty($recipes)) {
+                echo '<div class="col-md-10 mt-5 mb-5">';
+            
+                foreach ($recipes as $row) {
+                    echo '<a href="../../controller/detail.php?id=' . $row['REC_Id'] . '" class="text-decoration-none text-dark">'; // Ouvrez le lien autour de la recette
+                    echo '<div class="row mb-4 border border-primary">';
+                    echo '<div class="col-md-3"><img src="' . $row['REC_Image'] . '" alt="' . $row['REC_Titre'] . '" class="img-fluid"></div>';
+                    echo '<div class="col-md-9 texte">';
+                    echo '<h2>' . $row['REC_Titre'] . '</h2>';
+                    echo '<p>' . $row['REC_Resum'] . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</a>'; // Fermez le lien autour de la recette
+                }
+            
+                echo '</div>';
+            } else {
+                echo "Aucune recette trouvée.";
             }
             ?>
         </div>

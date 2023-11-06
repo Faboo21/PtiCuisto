@@ -13,7 +13,7 @@ if (isset($_SESSION['recipe'])) {
     echo '<h1 class="titre">' . $recipe['REC_Titre'] . '</h1>';
     
     // Afficher l'image de la recette
-    echo '<img src="' . $recipe['REC_Image'] . '" alt="' . $recipe['REC_Titre'] . '" class="img-fluid">';
+    echo '<img src="../../images/image_recette/' . $recipe['REC_Image'] . '" alt="' . $recipe['REC_Titre'] . '" class="img-fluid" width="20%">';
     
     // Afficher le résumé de la recette
     echo '<p class="texte">' . $recipe['REC_Resum'] . '</p>';

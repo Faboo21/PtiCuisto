@@ -4,10 +4,10 @@ require_once '../model/signInManager.php';
 
 $signIN = new SignInManager();
 
-$stmtMail = $signIN->mailExiste($_GET["email"]);
-$stmtPseudo = $signIN->pseudoExiste($_GET["pseudo"]);
+$stmtMail = $signIN->mailExiste($_GET["emailI"]);
+$stmtPseudo = $signIN->pseudoExiste($_GET["pseudoI"]);
 
-if (empty($_GET["email"]) || empty($_GET["password"]) || empty($_GET["name"]) || empty($_GET["firstName"]) || empty($_GET["pseudo"])) {
+if (empty($_GET["emailI"]) || empty($_GET["passwordI"]) || empty($_GET["nameI"]) || empty($_GET["firstNameI"]) || empty($_GET["pseudoI"])) {
     $_SESSION["inscription_rate"] = 'vide';
     echo '<script>window.history.back();</script>';
 } 
@@ -20,8 +20,8 @@ elseif ($stmtPseudo[0]['nbPseudo'] != 0) {
     echo '<script>window.history.back();</script>';
 } 
 else {
-    $signIN->inscrire($_GET["pseudo"], $_GET["firstName"], $_GET["name"], $_GET["email"], $_GET["password"]);
-    $_SESSION["user"] = $_GET["pseudo"];
+    $signIN->inscrire($_GET["pseudoI"], $_GET["firstNameI"], $_GET["nameI"], $_GET["emailI"], $_GET["passwordI"]);
+    $_SESSION["user"] = $_GET["pseudoI"];
     header('Location: ../view/page/edito.php');
 }
 ?>
