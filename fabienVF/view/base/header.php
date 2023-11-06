@@ -34,21 +34,58 @@
             </ul>
             
             <div class="flex-grow-1"></div>
-
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 cursor-pointer">
             <?php
-            if (isset($_SESSION["user"])) {
-                echo '<a class="nav-link text-left cursor-pointer" href="../../controller/deconnexion.php" style="color:#000000;">'.$_SESSION['user'].' : Se deconnecter</a>';
-            } else {
-                echo '<a class="nav-link text-left cursor-pointer" data-toggle="modal" data-target="#modaleConnexion" style="color:#000000;">Connexion</a>';
-            }
-            ?>
+                if (isset($_SESSION["user"])) {
+                    if(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] == 2){
+                        echo '<li class="nav-item dropdown">
+                            <button class="btn btn-default dropdown-toggle text-left" style="color:#000000;" type="button" href="#"
+                                id="dropdownMenuAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Gérer
+                                <span class="caret text-left"></span>
+                            </button>
+                            <ul class="dropdown-menu bg-secondary" aria-labelledby="dropdownMenuAdmin" style="color:#000000;">
+                                <li><a class="dropdown-item text-center" title="Lien 1" data-toggle="modal"
+                                        data-target="">Recettes</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-center" data-toggle="modal"
+                                        data-target="" title="Lien 2">Comptes</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-center" data-toggle="modal"
+                                        data-target="" title="Lien 3">Autres</a></li>
+                            </ul>
+                        </li>';
+                    }
+                    echo '<li class="nav-item">
+                        <a class="nav-link text-left" href="ajout_recette.php" style="color:#000000;">
+                            Ajouter une recette</a>
+                        </li>';
+                    echo '<li class="nav-item">
+                        <a class="nav-link text-left" href="../../controller/categorie.php?filter=0" style="color:#000000;">
+                            Mon Compte</a>
+                        </li>';
+                    
+                    echo '<li class="nav-item">';
+                    echo '<a class="nav-link text-left cursor-pointer" href="../../controller/deconnexion.php" style="color:#000000;">'.$_SESSION['user'].' : Se deconnecter</a>';
+                    echo '</li>';
+                } else {
+                    echo '<li class="nav-item">
+                            <a class="nav-link text-left" data-toggle="modal" data-target="#modaleConnexion" style="color:#000000;">Connexion</a>
+                        </li>';
+                }
+                ?>
+                </ul>
         </div>
     </div>
 </nav>
 
 
 
-<div class="modal fade" id="modalInscr" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalInscr" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -91,7 +128,7 @@
 </div>
 
 
-<div class="modal fade" id="modaleConnexion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaleConnexion" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -127,7 +164,7 @@
 </div>
 
 
-<div class="modal fade" id="modaleCategorie" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaleCategorie" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -153,7 +190,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modaleTitre" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaleTitre" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -186,7 +223,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modaleIngredients" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modaleIngredients" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -200,7 +237,7 @@
                 </ul>
                 <form action="../../controller/ingredients.php" class="signup-form">
                     <label class="text-center" for="ingredient-select">Sélectionnez l'ingredient de votre choix ou recherchez le en tapant son nom</label>
-                    <select id="ingredient-select" name="ing" class="custom-select rounded px-3 mb-3 mt-3">
+                    <select id="ingredient-select" name="ing" class="custom-select rounded px-3 mb-3 mt-3" multiple>
                         <?php
                         require_once '../../model/RecipeManager.php';
                         $recipe = new RecipeManager();
@@ -220,16 +257,22 @@
 </div>
 
 <?php
-if (isset($_SESSION["inscription_reussie"])) {
-    if ($_SESSION["inscription_reussie"] == 'mail') {
+if (isset($_SESSION["inscription_rate"])) {
+    if ($_SESSION["inscription_rate"] == 'vide') {
+        echo '<script>alert("Veuillez remplir tous les champs")</script>';
+    } elseif ($_SESSION["inscription_rate"] == 'mail') {
         echo '<script>alert("Cette Email est déjà utilisé")</script>';
-    } elseif ($_SESSION["inscription_reussie"] == 'pseudo') {
+    } elseif ($_SESSION["inscription_rate"] == 'pseudo') {
         echo '<script>alert("Ce pseudo est déjà utilisé")</script>';
     }
-    unset($_SESSION["inscription_reussie"]);
+    unset($_SESSION["inscription_rate"]);
 }
 if (isset($_SESSION["connexion_rate"])) {
-    echo '<script>alert("Email ou mot de passe incorrect !")</script>';
+    if ($_SESSION["connexion_rate"] == 'vide') {
+        echo '<script>alert("Veuillez remplir tous les champs !")</script>';
+    } else {
+        echo '<script>alert("Email ou mot de passe incorrect !")</script>';
+    }
     unset($_SESSION["connexion_rate"]);
 }
 ?>

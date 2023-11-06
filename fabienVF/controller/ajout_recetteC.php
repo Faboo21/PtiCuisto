@@ -1,6 +1,8 @@
 <?php
 require_once '../model/RecipeManager.php';
 
+print_r($_POST);
+
 $recipe = new RecipeManager();
 $dossier = '../images/image_recette/';
 $fichier = basename($_FILES['image_recette']['name']);
@@ -24,7 +26,7 @@ if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
           'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
           'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
      $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-     $res = $recipe->rechercheNom($fichier);
+     $res = $recipe->totalRecette();
      $nouveauNom = explode('.' , $fichier)[0].$res[0]["total"].$extension;
      if(move_uploaded_file($_FILES['image_recette']['tmp_name'], $dossier .$nouveauNom)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
      {
