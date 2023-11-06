@@ -1,1 +1,1 @@
-<?php header('Location: ./view/accueil.php'); ?>
+<?php header('Location: ./view/page/edito.php'); ?>
