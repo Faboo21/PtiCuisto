@@ -1,5 +1,7 @@
 # PtiCuisto - Plateforme de partage de recettes
 
+Message pour Mr Vallot regardez vos mails vous aurez un compte admin de fournis
+
 ## Introduction
 
 Bienvenue sur PtiCuisto, la plateforme en ligne où les amateurs de cuisine peuvent partager et découvrir de délicieuses recettes. PtiCuisto offre une expérience conviviale permettant aux utilisateurs de créer un compte, de se connecter, d'ajouter des recettes, de les consulter, de les trier et bien plus encore.
