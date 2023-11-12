@@ -72,7 +72,7 @@ if(!isset($_SESSION["isadmin"]) || !$_SESSION["isadmin"] == 2){
         });
     });
 </script>
-</div>
+
 
 
 <?php $content = ob_get_clean();

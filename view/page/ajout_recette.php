@@ -86,7 +86,7 @@ session_start(); ?>
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" name="envoyer" value="Envoyer le fichier" class="btn btn-primary">
+                            <input type="submit" name="envoyer" value="Ajouter la recette" class="btn btn-primary">
                         </div>
                     </form>
                 </div>

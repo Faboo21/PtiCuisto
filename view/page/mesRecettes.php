@@ -49,7 +49,7 @@ $recipes = $_SESSION['mesRecette'] ?? [];?>
         });
     });
 </script>
-</div>
+
 
 
 <?php $content = ob_get_clean();

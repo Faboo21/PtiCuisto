@@ -61,7 +61,6 @@
         });
     });
 </script>
-</div>
 
 <?php unset($_SESSION['suppr']);?>
 <?php $content = ob_get_clean();
