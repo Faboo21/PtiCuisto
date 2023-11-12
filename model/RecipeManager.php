@@ -188,7 +188,14 @@ class RecipeManager extends Manager
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function affichetouteRecette()
+    function afficheTouteRecette()
+    {
+        $stmt = parent::connexion()->prepare("SELECT * from PC_RECETTE where REC_Statut != 2 order by rec_DATECREATION desc ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function affichetouteRecetteAValider()
     {
         $stmt = parent::connexion()->prepare("SELECT * from PC_RECETTE where REC_Statut = 2 order by rec_DATECREATION desc ");
         $stmt->execute();
@@ -213,6 +220,18 @@ class RecipeManager extends Manager
         $stmt2->execute();
         $stmt3->execute();
     }
+
+    function masquerRecette($id)
+    {
+        $stmt1 = parent::connexion()->prepare("UPDATE PC_RECETTE set REC_Statut = 1 where REC_Id = $id");
+        $stmt1->execute();
+    }
+    function demasquerRecette($id)
+    {
+        $stmt1 = parent::connexion()->prepare("UPDATE PC_RECETTE set REC_Statut = 0 where REC_Id = $id");
+        $stmt1->execute();
+    }
+
 
     function afficheMesRecettes($id){
         $sql = "SELECT * from PC_RECETTE join PC_UTILISATEUR using(UTI_Id) where uti_pseudo = :id and (REC_Statut = 1 or REC_Statut = 2)";

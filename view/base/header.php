@@ -48,6 +48,10 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
+                                <li><a class="dropdown-item text-center" href="../../controller/recetteAdminValider.php" title="Lien 1">Recettes en attente</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item text-center" href="./comptes.php" title="Lien 2">Comptes</a></li>
                             </ul>
                         </li>';

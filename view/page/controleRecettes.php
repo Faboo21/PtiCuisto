@@ -24,6 +24,7 @@ if(!isset($_SESSION["isadmin"]) || !$_SESSION["isadmin"] == 2){
         function loadRecipes(start, end) {
             for (var i = start; i < end; i++) {
                 if (recipes[i]) {
+                    if (recipes[i]['REC_Statut'] == 1){
                     var row = $('<a href="../../controller/detail.php?id=' + recipes[i]['REC_Id'] + '" class="text-decoration-none text-dark">' +
                         '<div class="row mb-4 border border-primary">' +
                         '<div class="col-md-3"><img src="../../images/image_recette/' + recipes[i]['REC_Image'] + '" alt="Image_' + recipes[i]['REC_Titre'] + '" class="img-fluid"></div>' +
@@ -31,12 +32,27 @@ if(!isset($_SESSION["isadmin"]) || !$_SESSION["isadmin"] == 2){
                         '<h2>' + recipes[i]['REC_Titre'] + '</h2>' +
                         '<p>' + recipes[i]['REC_Resum'] + '</p>' +
 
-                        '<a class="nav-link cursor-pointer" href="../../controller/accepterRefuser.php?id=' + recipes[i]['REC_Id'] + '&n=1&r=v" style="color:#000000;">Accepter</a>' +
-                        '<a class="nav-link cursor-pointer" href="../../controller/accepterRefuser.php?id=' + recipes[i]['REC_Id'] + '&n=0&r=v" style="color:#000000;">Refuser</a>' +
+                            '<p>Statut de la recette : visible</p>' + 
+                            '<a class="nav-link cursor-pointer" href="../../controller/accepterRefuser.php?id=' + recipes[i]['REC_Id'] + '&n=1&r=c" style="color:#000000;">Masquer</a>' +
+                            
+                        '</div>' +
+                        '</div>' +
+                        '</a>');
+                    } else {
+                    var row = $('<a href="../../controller/detail.php?id=' + recipes[i]['REC_Id'] + '" class="text-decoration-none text-dark">' +
+                        '<div class="row mb-4 border border-primary">' +
+                        '<div class="col-md-3"><img src="../../images/image_recette/' + recipes[i]['REC_Image'] + '" alt="Image_' + recipes[i]['REC_Titre'] + '" class="img-fluid"></div>' +
+                        '<div class="col-md-9 texte">' +
+                        '<h2>' + recipes[i]['REC_Titre'] + '</h2>' +
+                        '<p>' + recipes[i]['REC_Resum'] + '</p>' +
+
+                            '<p>Statut de la recette : masquer</p>' +
+                            '<a class="nav-link cursor-pointer" href="../../controller/accepterRefuser.php?id=' + recipes[i]['REC_Id'] + '&n=0&r=c" style="color:#000000;">Rendre visible</a>' +
 
                         '</div>' +
                         '</div>' +
                         '</a>');
+                    }
                     recipeContainer.append(row);
                 }
             }
