@@ -215,12 +215,10 @@ class RecipeManager extends Manager
     }
 
     function afficheMesRecettes($id){
-        $sql = "SELECT * from PC_RECETTE join PC_UTILISATEUR using(UTI_Id) where uti_pseudo = ':id'";
+        $sql = "SELECT * from PC_RECETTE join PC_UTILISATEUR using(UTI_Id) where uti_pseudo = :id and (REC_Statut = 1 or REC_Statut = 2)";
         $stmt = parent::connexion()->prepare($sql);
-        $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id,PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
-
     }
 }

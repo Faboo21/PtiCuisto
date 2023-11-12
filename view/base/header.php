@@ -61,7 +61,7 @@
                             Mon Compte</a>
                         </li>';
                     echo '<li class="nav-item">
-                        <a class="nav-link text-left" href="./mesRecettes.php" style="color:#000000;">
+                        <a class="nav-link text-left" href="../../controller/mesRecettes.php" style="color:#000000;">
                             Mes Recettes</a>
                         </li>';
 
