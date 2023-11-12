@@ -30,6 +30,7 @@ Bienvenue sur PtiCuisto, la plateforme en ligne où les amateurs de cuisine peuv
   - PHP
   - MySQL
 
+- [Tableau Kanban](https://iw3.atlassian.net/jira/software/projects/CUISTO/boards/2)
 ## Contributeurs
 
 - [Fabien LEROY](https://github.com/Faboo21)
