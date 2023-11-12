@@ -1,7 +1,3 @@
-Parfait, merci pour les informations supplémentaires. Voici la version mise à jour du README avec les noms des créateurs :
-
----
-
 # PtiCuisto - Plateforme de partage de recettes
 
 ## Introduction
