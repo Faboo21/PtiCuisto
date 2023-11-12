@@ -62,7 +62,7 @@ if (isset($_SESSION['recipe'])) {
             if($row['COM_Etat'] == 1 && isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] == 2){
                 echo '<p class="texte">Statut : Visible</p>';
                 echo "<a class='nav-link cursor-pointer' href='../../controller/masquer.php?id=".$row['COM_Id']."&n=1' style='color:#000000;'>Masquer</a>";
-            } else {
+            } elseif(isset($_SESSION["isadmin"]) && $_SESSION["isadmin"] == 2) {
                 echo '<p class="texte">Statut : Masqué</p>';
                 echo "<a class='nav-link cursor-pointer' href='../../controller/masquer.php?id=".$row['COM_Id']."&n=2' style='color:#000000;'>Demasquer</a>";
             }

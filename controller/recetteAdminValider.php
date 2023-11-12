@@ -4,9 +4,9 @@ session_start();
 require_once '../model/RecipeManager.php';
 
 $recipe = new RecipeManager();
-$recipes = $recipe->afficheTouteRecette();
+$recipes = $recipe->affichetouteRecetteAValider();
 
 $_SESSION['recipes'] = $recipes;
 
 ?>
-<?php header('Location: ../view/page/controleRecettes.php'); ?>
+<?php header('Location: ../view/page/valideRecettes.php'); ?>
