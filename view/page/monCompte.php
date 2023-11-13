@@ -47,11 +47,11 @@
                 <form action="../../controller/modifierInfo.php" class="signup-form" method="get">
                     <div class="form-group mb-2">
                         <label for="firstNameM">Prénom</label>
-                        <input id="firstNameM" name="firstNameM" type="text" class="form-control" placeholder="Prénom" autocomplete="on" value=<?php echo $stmt[0]['UTI_Nom']; ?> required>
+                        <input id="firstNameM" name="firstNameM" type="text" class="form-control" placeholder="Prénom" autocomplete="on" value=<?php echo $stmt[0]['UTI_Prenom']; ?> required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="nameM">Nom</label>
-                        <input id="nameM" name="nameM" type="text" class="form-control" placeholder="Nom" autocomplete="on" value=<?php echo $stmt[0]['UTI_Prenom']; ?> required>
+                        <input id="nameM" name="nameM" type="text" class="form-control" placeholder="Nom" autocomplete="on" value=<?php echo $stmt[0]['UTI_Nom']; ?> required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="passwordM">Mot de passe</label>

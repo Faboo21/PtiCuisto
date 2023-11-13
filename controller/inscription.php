@@ -20,7 +20,7 @@ elseif ($stmtPseudo[0]['nbPseudo'] != 0) {
     echo '<script>window.history.back();</script>';
 } 
 else {
-    $signIN->inscrire($_GET["pseudoI"], $_GET["firstNameI"], $_GET["nameI"], $_GET["emailI"], password_hash($_GET["passwordI"], PASSWORD_DEFAULT));
+    $signIN->inscrire($_GET["pseudoI"], $_GET["nameI"],$_GET["firstNameI"],$_GET["emailI"], password_hash($_GET["passwordI"], PASSWORD_DEFAULT));
     $_SESSION["user"] = $_GET["pseudoI"];
     header('Location: ../view/page/edito.php');
 }

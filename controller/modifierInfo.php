@@ -10,7 +10,7 @@ if (($_GET["passwordM"]) == "" || $_GET["nameM"] == "" || $_GET["firstNameM"] ==
     echo '<script>window.history.back();</script>';
 } 
 else {
-    $account->modifieCompte($_GET["pseudoM"], $_GET["firstNameM"], $_GET["nameM"], $_GET["emailM"], password_hash($_GET["passwordM"], PASSWORD_DEFAULT));
+    $account->modifieCompte($_GET["pseudoM"],$_GET["nameM"], $_GET["firstNameM"], $_GET["emailM"], password_hash($_GET["passwordM"], PASSWORD_DEFAULT));
     header('Location: ../view/page/edito.php');
 }
 ?>
