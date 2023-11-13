@@ -27,10 +27,10 @@ session_start(); ?>
                             </div>
                         </div>
 
-                        <button type="button" onclick="ajouterTag()" class="btn btn-primary">Ajouter un tag</button>
+                        <button type="button" onclick="ajouterTag()" class="btn btn-primary mb-3">Ajouter un tag</button>
 
                         <div class="form-group">
-                            <label for="tags">Tags :</label>
+                            <label for="tags">Tags (Ctrl + clic pour multiples):</label>
                             <select id="tags" name="tags[]" class="form-control" multiple>
                                 <?php
                                 require_once("../../model/RecipeManager.php");
@@ -64,10 +64,10 @@ session_start(); ?>
                             </div>
                         </div>
 
-                        <button type="button" onclick="ajouterIngredient()" class="btn btn-primary">Ajouter un ingrédient</button>
+                        <button type="button" onclick="ajouterIngredient()" class="btn btn-primary mb-3">Ajouter un ingrédient</button>
 
                         <div class="form-group">
-                            <label for="ingredients">Ingrédients :</label>
+                            <label for="ingredients">Ingrédients (Ctrl + clic pour multiples):</label>
                             <select id="ingredients" name="ingredients[]" class="form-control" multiple>
                                 <?php
                                 require_once("../../model/RecipeManager.php");

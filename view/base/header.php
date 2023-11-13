@@ -237,7 +237,7 @@
                 </ul>
                 <form action="../../controller/ingredients.php" class="signup-form">
                     <label class="text-center" for="ingredient-select">Sélectionnez l'ingredient de votre choix ou recherchez le en tapant son nom</label>
-                    <select id="ingredient-select" name="ing" class="custom-select rounded px-3 mb-3 mt-3" multiple>
+                    <select id="ingredient-select" name="ing" class="custom-select rounded px-3 mb-3 mt-3">
                         <?php
                         require_once '../../model/RecipeManager.php';
                         $recipe = new RecipeManager();
