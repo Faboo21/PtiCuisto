@@ -1,6 +1,7 @@
 # PtiCuisto - Plateforme de partage de recettes
 
 Message pour Mr Vallot regardez vos mails vous aurez un compte admin de fournis
+Site Fonctionnel : [PtiCuisto](https://dev-leroy223.users.info.unicaen.fr/PtiCuisto/view/page/edito.php)
 
 ## Introduction
 
