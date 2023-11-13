@@ -21,6 +21,40 @@ Bienvenue sur PtiCuisto, la plateforme en ligne où les amateurs de cuisine peuv
 
 - **Commentaires :** Les utilisateurs peuvent laisser des commentaires sur les recettes. Les auteurs peuvent également supprimer leurs propres recettes.
 
+Bien sûr, voici un exemple de section d'installation pour votre fichier README, combinant toutes les étapes dans une seule section :
+
+## Installation
+
+Suivez ces étapes pour installer et configurer le projet localement.
+
+1. **Téléchargement du projet**
+
+   Clonez le projet depuis le dépôt GitHub.
+
+   ```bash
+   git clone https://github.com/Faboo21/PtiCuisto
+   ```
+
+2. **Création de la base de données**
+
+   - Importez le fichier `bdd.sql` dans votre base de données MySQL.
+
+3. **Configuration de la base de données**
+
+   - Créez un fichier `model/bdd.env`.
+   - Ajoutez les informations suivantes au format suivant :
+
+   ```env
+   DB_HOST=serveur.bdd.fr
+   DB_NAME=bdd_1
+   DB_USER=user
+   DB_PASS=password
+   ```
+
+   Remplacez les valeurs par les informations de votre base de données.
+
+N'oubliez pas de remplacer les valeurs d'exemple par les informations spécifiques à votre configuration.
+
 ## Technologies utilisées
 
 - **Front-end :**
