@@ -53,8 +53,6 @@ Suivez ces étapes pour installer et configurer le projet localement.
 
    Remplacez les valeurs par les informations de votre base de données.
 
-N'oubliez pas de remplacer les valeurs d'exemple par les informations spécifiques à votre configuration.
-
 ## Technologies utilisées
 
 - **Front-end :**
