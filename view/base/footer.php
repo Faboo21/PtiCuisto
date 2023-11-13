@@ -23,6 +23,6 @@
 </div>
 
     <div class="text-center p-3 text-light texte">
-        © 2023 Copyright : Fabien Leroy, Eliot Petrus, Mathéo Levallois
+        © 2023 Copyright <a href="https://takeb1nzyto.space/" style="text-decoration: none;color: white;">:<a> Fabien Leroy, Eliot Petrus, Mathéo Levallois
     </div>
 </footer>
