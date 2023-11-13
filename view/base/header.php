@@ -270,6 +270,8 @@ if (isset($_SESSION["inscription_rate"])) {
 if (isset($_SESSION["connexion_rate"])) {
     if ($_SESSION["connexion_rate"] == 'vide') {
         echo '<script>alert("Veuillez remplir tous les champs !")</script>';
+    } elseif ($_SESSION["connexion_rate"] == 'ban') {
+        echo '<script>alert("Votre compte a été bannis !")</script>';
     } else {
         echo '<script>alert("Email ou mot de passe incorrect !")</script>';
     }
